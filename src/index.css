@@ -1,8 +1,13 @@
+body {
+  background-color: #ede9bb;
+}
+
 #list-card {
-    width: 60%;
-    margin: auto;
-    margin-top: 50px;
-    padding: 10px;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .list-item, ul {
@@ -45,6 +50,7 @@
 input {
   margin-right: 23px;
   border-style: none;
+  background-color: inherit;
 }
 
 
