@@ -1,39 +1,47 @@
+/*
+  Simple shopping/todo list in React.js
+*/
+
 // import React and the css file
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+/* Class for the items of the list */
 class Item extends React.Component {
   constructor (props)
   {
     super(props);
 
+    // delete buttons are invisible by default
     this.state = {
-      btnClassName: "delete-off"
+      deleteBtnFlag: "delete-off"
     };
   }
 
   deleteOn ()
   {
+    // show delete buttons on hover
     this.setState({
-      btnClassName: "delete-on"
+      deleteBtnFlag: "delete-on"
     });
   }
 
   deleteOff ()
   {
+    // hide delete buttons if the user is not hovering over the item
     this.setState({
-      btnClassName: "delete-off"
+      deleteBtnFlag: "delete-off"
     });
   }
 
   render ()
   {
     return (
-      <li key={this.props.value} className={this.props.className} onMouseEnter={() => this.deleteOn()} onMouseLeave={() => this.deleteOff()}>
+      <li key={this.props.value} className={this.props.className} onMouseEnter={() => this.deleteOn()} onMouseLeave={() => this.deleteOff()} onMouseOver={() => this.deleteOn()}>
         <div className="row">
           <span className="col-9 col-md-10">{this.props.value}</span>
-          <button className={"col-2 col-md-1 btn btn-danger delete-btn " + this.state.btnClassName} onClick={() => this.props.onClick()}>
+          <button className={"col-2 col-md-1 btn btn-danger delete-btn " + this.state.deleteBtnFlag} onClick={() => this.props.onClick()}>
             <i className="fa fa-remove"></i>
           </button>
         </div>
