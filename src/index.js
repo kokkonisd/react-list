@@ -142,7 +142,10 @@ class List extends React.Component {
           <ul id="list">
             {items}
             <li className="row list-item list-add">
-              <input className="col-8 col-md-9 lead" id="new-item" onKeyPress={(e) => this.handleEnter(e)} />
+              <input className="col-8 col-md-9 lead"
+                id="new-item"
+                onKeyPress={(e) => this.handleEnter(e)}
+                placeholder="enter a new item here..." />
               <button className="btn btn-success col-2 col-md-1" onClick={() => this.addItem()}>
                 <i className="fa fa-plus"></i>
               </button>
