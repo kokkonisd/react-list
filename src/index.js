@@ -1,5 +1,6 @@
 /*
   Simple shopping/todo list in React.js
+  Written by Dimitris Kokkonis
 */
 
 // import React and the css file
@@ -114,6 +115,7 @@ class List extends React.Component {
       listItems: listItems.concat([newItem.value])
     });
 
+    // wipe the input form clean
     newItem.value = "";
   }
 
@@ -127,17 +129,19 @@ class List extends React.Component {
 
   render ()
   {
+    // get and render all the individual items
     let listItems = this.state.listItems;
     let items = [];
     for (let i = 0; i < listItems.length; i++) {
       items.push(this.renderListItem(i));
     }
+
     return (
       <div className="row">
         <div className="card lead col-12 col-md-8 col-md-offset-2" id="list-card">
           <ul id="list">
             {items}
-            <li className="row list-item last-list-item list-add">
+            <li className="row list-item list-add">
               <input className="col-8 col-md-9 lead" id="new-item" onKeyPress={(e) => this.handleEnter(e)} />
               <button className="btn btn-success col-2 col-md-1" onClick={() => this.addItem()}>
                 <i className="fa fa-plus"></i>
@@ -145,11 +149,15 @@ class List extends React.Component {
             </li>
           </ul>
         </div>
+        <div className="col-12 text-center mx-auto signature">
+          made by <a className="name" href="https://github.com/kokkonisd">kokkonisd</a> using <a className="source" href="https://reactjs.org/">react.js</a>
+        </div>
       </div>
     )
   }
 }
 
+// render everything
 ReactDOM.render(
   <List />,
   document.getElementById('root')

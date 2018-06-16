@@ -18,7 +18,7 @@
   border-top: 1px solid gray;
 }
 
-.last-list-item {
+.list-add {
   border-bottom: 1px solid gray;
 }
 
@@ -45,4 +45,20 @@
 input {
   margin-right: 23px;
   border-style: none;
+}
+
+
+a, a:hover {
+  color: inherit;
+}
+
+.name, .source {
+  text-decoration: underline;
+}
+
+.signature {
+  margin-top: 60px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: 10pt;
 }
