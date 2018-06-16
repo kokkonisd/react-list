@@ -48,7 +48,7 @@ class List extends React.Component {
     super(props);
 
     this.state = {
-      listItems: []
+      listItems: ["apples", "oranges", "cheese"]
     }
   }
 
@@ -88,8 +88,14 @@ class List extends React.Component {
 
     this.setState({
       listItems: listItems.concat([newItem])
-    })
+    });
+  }
 
+  handleEnter (e)
+  {
+    if (e.key === "Enter") {
+      this.addItem()
+    }
   }
 
   render ()
@@ -105,7 +111,7 @@ class List extends React.Component {
           <ul id="list">
             {items}
             <li className="row list-item last-list-item list-add">
-              <input className="col-8 col-md-9 lead" id="new-item" />
+              <input className="col-8 col-md-9 lead" id="new-item" onKeyPress={(e) => this.handleEnter(e)}/>
               <button className="btn btn-success col-2 col-md-1" onClick={() => this.addItem()}>
                 <i className="fa fa-plus"></i>
               </button>
