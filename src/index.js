@@ -3,8 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-let listItems = ['apples', 'oranges', 'wine'];
-
 class Item extends React.Component {
   constructor (props)
   {
@@ -33,28 +31,75 @@ class Item extends React.Component {
   {
     return (
       <li key={this.props.value} className={this.props.className} onMouseEnter={() => this.deleteOn()} onMouseLeave={() => this.deleteOff()}>
-        <span>{this.props.value}</span>
-        <button className={"delete-btn " + this.state.btnClassName}>delete</button>
+        <div className="row">
+          <span className="col-9 col-md-10">{this.props.value}</span>
+          <button className={"col-2 col-md-1 btn btn-danger delete-btn " + this.state.btnClassName} onClick={() => this.props.onClick()}>
+            <i className="fa fa-remove"></i>
+          </button>
+        </div>
       </li>
     );
   }
 }
 
 class List extends React.Component {
+  constructor (props)
+  {
+    super(props);
 
+    this.state = {
+      listItems: ['apples', 'oranges', 'wine']
+    }
+  }
+
+  renderListItem (i)
+  {
+    let listItems = this.state.listItems;
+    return (
+      <Item value={listItems[i]} key={listItems[i]} className={"list-item"} onClick={() => this.removeItem(i)}/>
+    );
+  }
+
+  removeItem (i)
+  {
+    let listItems = this.state.listItems;
+    let newListItems = listItems.slice();
+
+    if (i === 0) {
+      newListItems.shift();
+    } else if (i === listItems.length - 1) {
+      newListItems.pop();
+    } else {
+      newListItems = listItems.slice(0, i).concat(listItems.slice(i + 1, listItems.length));
+    }
+
+
+    this.setState({
+      listItems: newListItems
+    });
+    
+  }
 
   render ()
   {
+    let listItems = this.state.listItems;
     let items = [];
-    for (let i = 0; i < listItems.length - 1; i++) {
-      items.push(<Item value={listItems[i]} key={listItems[i]} className={"list-item"}/>);
+    for (let i = 0; i < listItems.length; i++) {
+      items.push(this.renderListItem(i));
     }
     return (
-      <div className="card lead" id="list-card">
-        <ul id="list">
-          {items}
-          <Item value={listItems[listItems.length - 1]} className="list-item last-list-item"/>
-        </ul>
+      <div className="row">
+        <div className="card lead col-12 col-md-8 col-md-offset-2" id="list-card">
+          <ul id="list">
+            {items}
+            <li className="row list-item last-list-item list-add">
+              <input className="col-8 col-md-9 lead" />
+              <button className="btn btn-success col-2 col-md-1">
+                <i className="fa fa-plus"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     )
   }

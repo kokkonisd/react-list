@@ -27,7 +27,7 @@
 }
 
 .list-item>button {
-  float: right;
+  margin: auto;
 }
 
 .delete-on {
@@ -36,4 +36,12 @@
 
 .delete-off {
   opacity: 0;
+}
+
+.list-add:hover {
+  background-color: inherit;
+}
+
+input {
+  margin-right: 23px;
 }
