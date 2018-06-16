@@ -21,3 +21,19 @@
 .last-list-item {
   border-bottom: 1px solid gray;
 }
+
+.list-item:hover {
+  background-color: rgba(150, 150, 150, 0.4);
+}
+
+.list-item>button {
+  float: right;
+}
+
+.delete-on {
+  opacity: 1;
+}
+
+.delete-off {
+  opacity: 0;
+}
