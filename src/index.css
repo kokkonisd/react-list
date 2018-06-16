@@ -1,0 +1,23 @@
+#list-card {
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.list-item, ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.list-item {
+  border-top: 1px solid gray;
+}
+
+.last-list-item {
+  border-bottom: 1px solid gray;
+}
