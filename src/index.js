@@ -48,7 +48,7 @@ class List extends React.Component {
     super(props);
 
     this.state = {
-      listItems: ['apples', 'oranges', 'wine']
+      listItems: []
     }
   }
 
@@ -73,11 +73,23 @@ class List extends React.Component {
       newListItems = listItems.slice(0, i).concat(listItems.slice(i + 1, listItems.length));
     }
 
-
     this.setState({
       listItems: newListItems
     });
-    
+  }
+
+  addItem ()
+  {
+    let listItems = this.state.listItems;
+    let newItem = document.getElementById("new-item").value;
+    if (!newItem || newItem === "" || listItems.indexOf(newItem) !== -1) {
+      return;
+    }
+
+    this.setState({
+      listItems: listItems.concat([newItem])
+    })
+
   }
 
   render ()
@@ -93,8 +105,8 @@ class List extends React.Component {
           <ul id="list">
             {items}
             <li className="row list-item last-list-item list-add">
-              <input className="col-8 col-md-9 lead" />
-              <button className="btn btn-success col-2 col-md-1">
+              <input className="col-8 col-md-9 lead" id="new-item" />
+              <button className="btn btn-success col-2 col-md-1" onClick={() => this.addItem()}>
                 <i className="fa fa-plus"></i>
               </button>
             </li>
