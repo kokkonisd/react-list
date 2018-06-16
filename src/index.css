@@ -68,3 +68,7 @@ a, a:hover {
   padding-bottom: 0px;
   font-size: 10pt;
 }
+
+#title {
+  margin-top: 20px;
+}

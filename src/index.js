@@ -138,7 +138,8 @@ class List extends React.Component {
 
     return (
       <div className="row">
-        <div className="card lead col-12 col-md-8 col-md-offset-2" id="list-card">
+        <div className="col-12 text-center display-4" id="title">react-list</div>
+        <div className="card lead col-11 col-md-8 col-lg-6 col-md-offset-2" id="list-card">
           <ul id="list">
             {items}
             <li className="row list-item list-add">
