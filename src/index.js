@@ -38,10 +38,16 @@ class Item extends React.Component {
   render ()
   {
     return (
-      <li key={this.props.value} className={this.props.className} onMouseEnter={() => this.deleteOn()} onMouseLeave={() => this.deleteOff()} onMouseOver={() => this.deleteOn()}>
+      <li key={this.props.value}
+        className={this.props.className}
+        onMouseEnter={() => this.deleteOn()}
+        onMouseOver={() => this.deleteOn()}
+        onMouseLeave={() => this.deleteOff()}>
+
         <div className="row">
           <span className="col-9 col-md-10">{this.props.value}</span>
-          <button className={"col-2 col-md-1 btn btn-danger delete-btn " + this.state.deleteBtnFlag} onClick={() => this.props.onClick()}>
+          <button className={"col-2 col-md-1 btn btn-danger " + this.state.deleteBtnFlag}
+            onClick={() => this.props.onClick()}>
             <i className="fa fa-remove"></i>
           </button>
         </div>
@@ -50,16 +56,19 @@ class Item extends React.Component {
   }
 }
 
+/* Class for the list of items itself */
 class List extends React.Component {
   constructor (props)
   {
     super(props);
 
+    // put some items in there by default
     this.state = {
       listItems: ["apples", "oranges", "cheese"]
     }
   }
 
+  // render the i-th item of the list
   renderListItem (i)
   {
     let listItems = this.state.listItems;
@@ -68,11 +77,14 @@ class List extends React.Component {
     );
   }
 
+  // remove the i-th item of the list
   removeItem (i)
   {
+    // get a copy of the current state of the items list
     let listItems = this.state.listItems;
     let newListItems = listItems.slice();
 
+    // remove the i-th element
     if (i === 0) {
       newListItems.shift();
     } else if (i === listItems.length - 1) {
@@ -81,24 +93,31 @@ class List extends React.Component {
       newListItems = listItems.slice(0, i).concat(listItems.slice(i + 1, listItems.length));
     }
 
+    // update the state
     this.setState({
       listItems: newListItems
     });
   }
 
+  // add a new item
   addItem ()
   {
     let listItems = this.state.listItems;
-    let newItem = document.getElementById("new-item").value;
-    if (!newItem || newItem === "" || listItems.indexOf(newItem) !== -1) {
+    let newItem = document.getElementById("new-item");
+    // if new item is empty or already exists, don't add it
+    if (!newItem.value || newItem.value === "" || listItems.indexOf(newItem.value) !== -1) {
       return;
     }
 
+    // update the state
     this.setState({
-      listItems: listItems.concat([newItem])
+      listItems: listItems.concat([newItem.value])
     });
+
+    newItem.value = "";
   }
 
+  // if enter is pressed while focused on the input, add the item
   handleEnter (e)
   {
     if (e.key === "Enter") {
@@ -119,7 +138,7 @@ class List extends React.Component {
           <ul id="list">
             {items}
             <li className="row list-item last-list-item list-add">
-              <input className="col-8 col-md-9 lead" id="new-item" onKeyPress={(e) => this.handleEnter(e)}/>
+              <input className="col-8 col-md-9 lead" id="new-item" onKeyPress={(e) => this.handleEnter(e)} />
               <button className="btn btn-success col-2 col-md-1" onClick={() => this.addItem()}>
                 <i className="fa fa-plus"></i>
               </button>
