@@ -53,6 +53,9 @@ input {
   background-color: inherit;
 }
 
+input:focus {
+  outline: none;
+}
 
 a, a:hover {
   color: inherit;
