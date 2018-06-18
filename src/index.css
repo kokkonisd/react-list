@@ -34,10 +34,6 @@ body {
   border-bottom: 1px solid gray;
 }
 
-.list-item:hover {
-  background-color: rgba(150, 150, 150, 0.4);
-}
-
 .list-item>button {
   margin: auto;
 }
@@ -48,6 +44,14 @@ body {
 
 .delete-off {
   opacity: 0;
+}
+
+.highlight-on {
+  background-color: rgba(150, 150, 150, 0.4);
+}
+
+.highlight-off {
+  background-color: none;
 }
 
 .list-add:hover {

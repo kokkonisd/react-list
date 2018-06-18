@@ -39,9 +39,11 @@ class Item extends React.Component {
     if (this.state.noMouse) {
       return;
     }
+
     // show delete buttons on hover
     this.setState({
-      deleteBtnFlag: "delete-on"
+      deleteBtnFlag: "delete-on",
+      liFlag: "highlight-on"
     });
   }
 
@@ -53,7 +55,8 @@ class Item extends React.Component {
     }
     // hide delete buttons if the user is not hovering over the item
     this.setState({
-      deleteBtnFlag: "delete-off"
+      deleteBtnFlag: "delete-off",
+      liFlag: "highlight-off"
     });
   }
 
@@ -61,7 +64,7 @@ class Item extends React.Component {
   {
     return (
       <li key={this.props.value}
-        className={this.props.className}
+        className={this.props.className + " " + this.state.liFlag}
         onMouseEnter={() => this.deleteOn()}
         onMouseOver={() => this.deleteOn()}
         onMouseLeave={() => this.deleteOff()}>
