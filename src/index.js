@@ -20,8 +20,25 @@ class Item extends React.Component {
     };
   }
 
+
+  componentDidMount() {
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
+  }
+
+  resize() {
+      this.setState({
+        noMouse: window.innerWidth <= 1024,
+        deleteBtnFlag: window.innerWidth <= 1024 ? "delete-on" : "delete-off"
+      });
+  }
+
   deleteOn ()
   {
+    // if we're on a tablet or a mobile device, disable this handler
+    if (this.state.noMouse) {
+      return;
+    }
     // show delete buttons on hover
     this.setState({
       deleteBtnFlag: "delete-on"
@@ -30,6 +47,10 @@ class Item extends React.Component {
 
   deleteOff ()
   {
+    // if we're on a tablet or a mobile device, disable this handler
+    if (this.state.noMouse) {
+      return;
+    }
     // hide delete buttons if the user is not hovering over the item
     this.setState({
       deleteBtnFlag: "delete-off"
@@ -137,7 +158,7 @@ class List extends React.Component {
     }
 
     return (
-      <div className="row">
+      <div className="row app">
         <div className="col-12 text-center display-4" id="title">react-list</div>
         <div className="card lead col-11 col-md-8 col-lg-6 col-md-offset-2" id="list-card">
           <ul id="list">
