@@ -55,7 +55,6 @@ body {
 }
 
 input {
-  margin-right: 23px;
   border-style: none;
   background-color: inherit;
 }
@@ -81,7 +80,4 @@ a, a:hover {
 
 #title {
   margin-top: 20px;
-}
-
-.list-item {
 }

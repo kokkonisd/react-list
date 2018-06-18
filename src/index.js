@@ -27,10 +27,10 @@ class Item extends React.Component {
   }
 
   resize() {
-      this.setState({
-        noMouse: window.innerWidth <= 1024,
-        deleteBtnFlag: window.innerWidth <= 1024 ? "delete-on" : "delete-off"
-      });
+    this.setState({
+      noMouse: window.innerWidth <= 1024,
+      deleteBtnFlag: window.innerWidth <= 1024 ? "delete-on" : "delete-off"
+    });
   }
 
   deleteOn ()
@@ -66,13 +66,11 @@ class Item extends React.Component {
         onMouseOver={() => this.deleteOn()}
         onMouseLeave={() => this.deleteOff()}>
 
-        <div className="row">
-          <span className="col-9 col-md-10">{this.props.value}</span>
-          <button className={"col-2 col-md-1 btn btn-danger " + this.state.deleteBtnFlag}
-            onClick={() => this.props.onClick()}>
-            <i className="fa fa-remove"></i>
-          </button>
-        </div>
+        <div className="col-9 col-md-10">{this.props.value}</div>
+        <button className={"col-2 col-md-1 btn btn-danger " + this.state.deleteBtnFlag}
+          onClick={() => this.props.onClick()}>
+          <i className="fa fa-remove"></i>
+        </button>
       </li>
     );
   }
@@ -95,7 +93,7 @@ class List extends React.Component {
   {
     let listItems = this.state.listItems;
     return (
-      <Item value={listItems[i]} key={listItems[i]} className={"list-item"} onClick={() => this.removeItem(i)}/>
+      <Item value={listItems[i]} key={listItems[i]} className={"list-item row"} onClick={() => this.removeItem(i)}/>
     );
   }
 
@@ -164,7 +162,7 @@ class List extends React.Component {
           <ul id="list">
             {items}
             <li className="row list-item list-add">
-              <input className="col-8 col-md-9 lead"
+              <input className="col-9 col-md-10 lead"
                 id="new-item"
                 onKeyPress={(e) => this.handleEnter(e)}
                 placeholder="enter a new item here..." />
