@@ -4,8 +4,9 @@
   "private": true,
   "homepage": "http://kokkonisd.github.io/react-list",
   "dependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "ajv": "^6.5.5",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
