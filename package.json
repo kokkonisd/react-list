@@ -21,6 +21,12 @@
   },
   "devDependencies": {
     "gh-pages": "^1.2.0",
-    "webpack": "^4.28.3"
-  }
+    "webpack": "4.19.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
