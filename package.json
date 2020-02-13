@@ -7,7 +7,7 @@
     "ajv": "^6.10.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^3.3.1",
     "typescript": "^3.5.3"
   },
   "scripts": {
@@ -21,7 +21,7 @@
   "devDependencies": {
     "assign-deep": ">=1.0.1",
     "gh-pages": "^1.2.0",
-    "handlebars": ">=4.1.0",
+    "handlebars": "^4.7.3",
     "js-yaml": ">=3.13.1",
     "set-value": "^3.0.1",
     "tar": ">=4.4.2"
